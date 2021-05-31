@@ -1,0 +1,42 @@
+.navbar {
+  background-color: black;
+  color: white;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  flex: 3;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  flex: 2;
+}
+
+.auth {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 2;
+}
+
+.logged-in {
+  display: flex;
+  align-content: center;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,16 @@
+.smallButton {
+  height: 40px;
+  width: 120px;
+  padding: 10px;
+  border: 1px solid rgba(150, 150, 150, 0.1);
+  border-radius: 40px;
+  font-size: 15px;
+  display: block;
+  background: white;
+  text-align: center;
+}
+
+.smallButton:hover {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
