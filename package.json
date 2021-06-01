@@ -1,5 +1,9 @@
 {
   "name": "community-song-v2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scholtz-gnome/community-song-v2"
+  },
   "version": "0.1.0",
   "engine": {
     "node": "14.16.1",
