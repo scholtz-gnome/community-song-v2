@@ -32,7 +32,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          build: npm ci
           browser: chrome
           start: npm run test:serve
           wait-on: "http://localhost:3000"
