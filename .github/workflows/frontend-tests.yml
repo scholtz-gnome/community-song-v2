@@ -36,7 +36,6 @@ jobs:
           browser: chrome
           start: npm run test:serve
           wait-on: "http://localhost:3000"
-          project: ./frontend
           working-directory: "./frontend"
 
       - run: npm ci
