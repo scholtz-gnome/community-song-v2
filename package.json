@@ -10,7 +10,7 @@
     "npm": "6.14.12"
   },
   "scripts": {
-    "postinstall": "npm install --prefix backend && npm install --prefix frontend"
+    "postinstall": "concurrently 'cd backend && npm install' 'cd frontend && npm install'"
   },
   "dependencies": {
     "concurrently": "^6.2.0"
