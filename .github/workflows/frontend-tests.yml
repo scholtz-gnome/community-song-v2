@@ -34,7 +34,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          start: npm run app:serve
+          start: npm run test:serve
           wait-on: "http://localhost:3000"
           project: ./frontend
           working-directory: "./frontend"
