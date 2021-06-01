@@ -19,6 +19,9 @@ jobs:
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
@@ -31,7 +34,6 @@ jobs:
         with:
           browser: chrome
           start: npm run test:serve
-          wait-on: "http://localhost:3000"
           working-directory: "./frontend"
 
       - run: npm run build --if-present
