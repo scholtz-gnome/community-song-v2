@@ -41,4 +41,4 @@ jobs:
           postgresql user: test
           postgresql password: test
 
-      - run: npm run githubTest
+      - run: cd backend && npm run githubTest
