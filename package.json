@@ -10,7 +10,7 @@
     "npm": "6.14.12"
   },
   "scripts": {
-    "frontend:test": "concurrently 'cd backend && npm run dev' 'cd frontend npm start' 'cd frontend && npx cypress run --browser edge'",
+    "frontend:test": "concurrently 'cd backend && npm run dev' 'cd frontend npm start' 'cd frontend && npx cypress run --browser chrome'",
     "postinstall": "npm install --prefix backend"
   },
   "dependencies": {
