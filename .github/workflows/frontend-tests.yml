@@ -35,7 +35,7 @@ jobs:
         with:
           browser: chrome
           start: npm run app:serve
-          path: frontend/
+          project: ./frontend
 
       - run: npm ci
 
