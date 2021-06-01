@@ -25,17 +25,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.x
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
           start: npm run app:serve
+          wait-on: "http://localhost:3000"
           project: ./frontend
+          working-directory: "./frontend"
 
       - run: npm ci
 
