@@ -33,8 +33,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          start: npm run app:serve
-          wait-on: "http://localhost:3000"
+          start: cd frontend && npm start, cd backend && npm run dev
+          wait-on: "http://localhost:3000", "http://localhost:4000"
 
       - run: npm ci
 
