@@ -32,8 +32,8 @@ jobs:
         with:
           postgresql version: 11
           postgresql db: test
-          postgresql user: test
-          postgresql password: test
+          postgresql user: postgres
+          postgresql password: admin
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
