@@ -26,6 +26,13 @@
   "bugs": {
     "url": "https://github.com/scholtz-gnome/community-song-v2/issues"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:cypress/recommended"
+    ]
+  },
   "homepage": "https://github.com/scholtz-gnome/community-song-v2#readme",
   "main": "index.js",
   "author": "",
