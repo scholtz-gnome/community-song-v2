@@ -6,6 +6,7 @@
     "npm": "6.14.12"
   },
   "scripts": {
+    "githubTest": "jest --runInBand",
     "postinstall": "npm install --prefix backend"
   }
 }
