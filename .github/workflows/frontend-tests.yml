@@ -17,6 +17,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      APP_URL_ROOT: http://localhost:3000
+      API_ROOT_URL: http://localhost:4000
+      ROOT_DOMAIN: localhost
 
     steps:
       - name: Checkout
