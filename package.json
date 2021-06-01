@@ -1,6 +1,10 @@
 {
   "name": "community-song-v2",
   "version": "0.1.0",
+  "engine": {
+    "node": "14.16.1",
+    "npm": "6.14.12"
+  },
   "scripts": {
     "postinstall": "npm install --prefix backend"
   }
