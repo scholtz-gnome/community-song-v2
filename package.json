@@ -2,7 +2,7 @@
   "name": "community-song-v2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scholtz-gnome/community-song-v2"
+    "url": "git+https://github.com/scholtz-gnome/community-song-v2.git"
   },
   "version": "0.1.0",
   "engine": {
@@ -16,5 +16,16 @@
   },
   "dependencies": {
     "concurrently": "^6.2.0"
-  }
+  },
+  "devDependencies": {
+    "cypress": "^7.4.0"
+  },
+  "description": "App and API of Community Song",
+  "bugs": {
+    "url": "https://github.com/scholtz-gnome/community-song-v2/issues"
+  },
+  "homepage": "https://github.com/scholtz-gnome/community-song-v2#readme",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
