@@ -34,8 +34,4 @@ jobs:
 
       - run: npm run build --if-present
 
-      - run: cd backend && npm run dev
-
-      - run: cd frontend && npm start
-
-      - run: cd frontend && npx cypress run --browser edge
+      - run: frontend:test
