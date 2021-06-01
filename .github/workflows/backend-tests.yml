@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Backend Tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
