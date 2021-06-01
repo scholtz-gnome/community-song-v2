@@ -6,7 +6,7 @@
     "npm": "6.14.12"
   },
   "scripts": {
-    "githubTest": "cd backend && npm test",
+    "githubTest": "cd backend && npm run githubTest",
     "postinstall": "npm install --prefix backend"
   }
 }
