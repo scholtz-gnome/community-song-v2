@@ -18,7 +18,9 @@
     "concurrently": "^6.2.0"
   },
   "devDependencies": {
-    "cypress": "^7.4.0"
+    "cypress": "^7.4.0",
+    "cypress-file-upload": "^5.0.7",
+    "eslint-plugin-cypress": "^2.11.3"
   },
   "description": "App and API of Community Song",
   "bugs": {
