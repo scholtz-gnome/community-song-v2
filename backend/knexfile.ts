@@ -37,6 +37,9 @@ module.exports = {
     client: "pg",
     connection: {
       connectionString: config.HEROKU_POSTGRESQL_MAUVE,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     },
     migrations: {
       directory: "./db/migrations",
