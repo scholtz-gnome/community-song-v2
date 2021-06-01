@@ -11,7 +11,7 @@
   },
   "scripts": {
     "frontend:test": "concurrently 'cd backend && npm run dev' 'cd frontend npm start' 'cd frontend && npx cypress run --browser chrome'",
-    "postinstall": "npm install --prefix backend"
+    "postinstall": "npm install --prefix backend && npm install --prefix frontend"
   },
   "dependencies": {
     "concurrently": "^6.2.0"
