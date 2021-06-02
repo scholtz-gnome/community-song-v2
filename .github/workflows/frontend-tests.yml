@@ -12,11 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REACT_APP_API_ROOT: "https://api.communitysong.co.za"
-      NODE_ENV: "development"
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       APP_URL_ROOT: http://localhost:3000
       API_ROOT_URL: https://api.communitysong.co.za
 
@@ -30,5 +25,6 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          start: npm run test:serve
+          start: cd ../backend && npm run dev, npm start
+          wait-on: http://localhost:4000, http://localhost:3000
           working-directory: "./frontend"
