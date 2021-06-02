@@ -11,7 +11,7 @@ jobs:
     name: Frontend Tests
     runs-on: ubuntu-latest
     env:
-      REACT_APP_API_ROOT: "http://localhost:4000"
+      REACT_APP_API_ROOT: http://localhost:4000
       APP_URL_ROOT: http://localhost:3000
       API_ROOT_URL: http://localhost:4000
 
@@ -25,6 +25,6 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          start: "cd ../backend && npm run dev", "npm start"
+          start: "cd ../backend && npm run dev, npm start"
           wait-on: http://localhost:4000, http://localhost:3000
           working-directory: "./frontend"
