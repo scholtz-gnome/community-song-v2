@@ -17,6 +17,7 @@
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "pretest": "npm run build",
     "test": "env NODE_ENV=test jest --runInBand",
+    "githubTest:build": "sudo npm i -g knex && knex migrate:rollback && knex migrate:latest && npm run dev",
     "githubTest": "jest --runInBand"
   },
   "author": "",

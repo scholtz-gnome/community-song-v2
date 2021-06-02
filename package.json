@@ -1,5 +1,6 @@
 {
   "name": "community-song-v2",
+  "description": "App and API of Community Song",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scholtz-gnome/community-song-v2.git"
@@ -12,11 +13,10 @@
   "scripts": {
     "postinstall": "concurrently 'cd backend && npm install' 'cd frontend && npm install'"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "concurrently": "^6.2.0"
   },
-  "devDependencies": {},
-  "description": "App and API of Community Song",
   "bugs": {
     "url": "https://github.com/scholtz-gnome/community-song-v2/issues"
   },
