@@ -37,11 +37,9 @@ context("Create", () => {
         "chords and lyrics"
       );
 
-      cy.get("[cypress-test='create-song-submit']").click();
+      cy.intercept("http://localhost:4000/songs/*/files").as("postSongsFiles");
 
-      cy.intercept("POST", "http://localhost:4000/songs/*/files").as(
-        "postSongsFiles"
-      );
+      cy.get("[cypress-test='create-song-submit']").click();
 
       cy.get("[cypress-test='create-song-success-message']").contains(
         "Nearly there..."

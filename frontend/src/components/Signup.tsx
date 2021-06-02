@@ -12,7 +12,7 @@ const Signup: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   const onUsernameChange = (e: BaseSyntheticEvent) => {
     const trimmedUsername: string = e.target.value.trim();
@@ -78,7 +78,7 @@ const Signup: React.FC = () => {
             onInput={onPasswordChange}
           />
         </div>
-        <div id="message">{message}</div>
+        {/* <div id="message">{message}</div> */}
         <div>
           <button className="form-button" form="login-form" type="submit">
             Sign up

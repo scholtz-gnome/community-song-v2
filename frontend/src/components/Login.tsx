@@ -1,9 +1,9 @@
 import config from "../config";
 import "./form.css";
-import { BaseSyntheticEvent, useState } from "react";
+import { BaseSyntheticEvent } from "react";
 
 const Login: React.FC = () => {
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   const onSubmit = (e: BaseSyntheticEvent) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const Login: React.FC = () => {
           <label className="labelName">Password</label>
           <input type="password" name="password" required />
         </div>
-        <div id="message">{message}</div>
+        {/* <div id="message">{message}</div> */}
         <div>
           <button className="form-button" form="login-form" type="submit">
             Log in
