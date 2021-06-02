@@ -26,6 +26,9 @@ lib-cov
 coverage
 *.lcov
 
+# cypress files
+frontend/cypress/videos
+
 # nyc test coverage
 .nyc_output
 
