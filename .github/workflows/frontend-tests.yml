@@ -11,9 +11,9 @@ jobs:
     name: Frontend Tests
     runs-on: ubuntu-latest
     env:
-      REACT_APP_API_ROOT: "https://api.communitysong.co.za"
+      REACT_APP_API_ROOT: "http://localhost:4000"
       APP_URL_ROOT: http://localhost:3000
-      API_ROOT_URL: https://api.communitysong.co.za
+      API_ROOT_URL: http://localhost:4000
 
     steps:
       - name: Checkout
