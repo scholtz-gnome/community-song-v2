@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:serve": "concurrently 'cd ../backend && knex migrate:latest && npm run dev' 'npm start'"
+    "test:serve": "concurrently 'cd ../backend && npm i -g knex && knex migrate:latest && npm run dev' 'npm start'"
   },
   "eslintConfig": {
     "extends": [
