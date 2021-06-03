@@ -36,7 +36,7 @@ module.exports = {
   development: {
     client: "pg",
     connection: {
-      connectionString: config.HEROKU_POSTGRESQL_MAUVE,
+      connectionString: config.HEROKU_POSTGRESQL_ROSE_URL,
       ssl: {
         rejectUnauthorized: false,
       },
@@ -52,7 +52,7 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      connectionString: config.HEROKU_POSTGRESQL_BLACK,
+      connectionString: config.DATABASE_URL,
       ssl: {
         rejectUnauthorized: false,
       },
