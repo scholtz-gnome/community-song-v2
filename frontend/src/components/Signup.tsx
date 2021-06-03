@@ -1,4 +1,5 @@
 import "./form.css";
+import "./Create.css";
 import config from "../config";
 import { BaseSyntheticEvent, useState } from "react";
 import axios from "axios";
@@ -56,50 +57,52 @@ const Signup: React.FC = () => {
   return (
     <div>
       <form onSubmit={onSubmit} id="signup-form">
-        <div>
-          <label className="labelName">Username</label>
-          <input
-            type="text"
-            name="username"
-            required
-            onInput={onUsernameChange}
-          />
-        </div>
-        <div>
-          <label className="labelName">Email</label>
-          <input type="email" name="email" required onInput={onEmailChange} />
-        </div>
-        <div>
-          <label className="labelName">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onInput={onPasswordChange}
-          />
-        </div>
-        {/* <div id="message">{message}</div> */}
-        <div>
-          <button className="form-button" form="login-form" type="submit">
-            Sign up
-          </button>
-        </div>
-        <div>
-          <button className="form-button" type="button">
-            <a href={`${config.API_ROOT}/signup/google`}>
-              <img src="./google-logo.png" alt="google" />
-              Sign up with Google
-            </a>
-          </button>
-        </div>
-        <div>
-          <button className="form-button" type="button">
-            <a href={`${config.API_ROOT}/signup/facebook`}>
-              <img src="./facebook-logo.png" alt="facebook" />
-              Sign up with Facebook
-            </a>
-          </button>
-        </div>
+        <article>
+          <section>
+            <label className="labelName">Username</label>
+            <input
+              type="text"
+              name="username"
+              required
+              onInput={onUsernameChange}
+            />
+          </section>
+          <section>
+            <label className="labelName">Email</label>
+            <input type="email" name="email" required onInput={onEmailChange} />
+          </section>
+          <section>
+            <label className="labelName">Password</label>
+            <input
+              type="password"
+              name="password"
+              required
+              onInput={onPasswordChange}
+            />
+          </section>
+          {/* <section id="message">{message}</section> */}
+          <section>
+            <button className="form-button" form="login-form" type="submit">
+              Sign up
+            </button>
+          </section>
+          <section>
+            <button className="form-button" type="button">
+              <a href={`${config.API_ROOT}/signup/google`}>
+                <img src="./google-logo.png" alt="google" />
+                Sign up with Google
+              </a>
+            </button>
+          </section>
+          <section>
+            <button className="form-button" type="button">
+              <a href={`${config.API_ROOT}/signup/facebook`}>
+                <img src="./facebook-logo.png" alt="facebook" />
+                Sign up with Facebook
+              </a>
+            </button>
+          </section>
+        </article>
       </form>
     </div>
   );

@@ -11,40 +11,42 @@ const Login: React.FC = () => {
     console.log(e.target);
   };
   return (
-    <div>
+    <article>
       <form onSubmit={onSubmit} id="login-form">
-        <div>
-          <label className="labelName">Email</label>
-          <input type="email" name="email" required />
-        </div>
-        <div>
-          <label className="labelName">Password</label>
-          <input type="password" name="password" required />
-        </div>
-        {/* <div id="message">{message}</div> */}
-        <div>
-          <button className="form-button" form="login-form" type="submit">
-            Log in
-          </button>
-        </div>
-        <div>
-          <button className="form-button" type="button">
-            <a href={`${config.API_ROOT}/login/google`}>
-              <img src="./google-logo.png" alt="google" />
-              Log in with Google
-            </a>
-          </button>
-        </div>
-        <div>
-          <button className="form-button" type="button">
-            <a href={`${config.API_ROOT}/login/facebook`}>
-              <img src="./facebook-logo.png" alt="facebook" />
-              Log in with Facebook
-            </a>
-          </button>
-        </div>
+        <article>
+          <section>
+            <label className="labelName">Email</label>
+            <input type="email" name="email" required />
+          </section>
+          <section>
+            <label className="labelName">Password</label>
+            <input type="password" name="password" required />
+          </section>
+          {/* <section id="message">{message}</section> */}
+          <section>
+            <button className="form-button" form="login-form" type="submit">
+              Log in
+            </button>
+          </section>
+          <section>
+            <button className="form-button" type="button">
+              <a href={`${config.API_ROOT}/login/google`}>
+                <img src="./google-logo.png" alt="google" />
+                Log in with Google
+              </a>
+            </button>
+          </section>
+          <section>
+            <button className="form-button" type="button">
+              <a href={`${config.API_ROOT}/login/facebook`}>
+                <img src="./facebook-logo.png" alt="facebook" />
+                Log in with Facebook
+              </a>
+            </button>
+          </section>
+        </article>
       </form>
-    </div>
+    </article>
   );
 };
 
