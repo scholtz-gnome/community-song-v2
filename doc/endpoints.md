@@ -4,12 +4,12 @@
 
 ### GET
 
-`/songs` retrieves all songs and returns array of objects
-`/songs/:id` retrieves song of given `id` and returns object with `id`, `title` and `artist`
+- `/songs` retrieves all songs. Returns an array of objects.
+- `/songs/:id` retrieves song of given `id`. Returns object with `id`, `title` and `artist`.
 
 ### POST
 
-`/songs` posts one song. Returns object with `id`, `title` and `artist`. Expects json object in `req.body` with song `title`, `alternateTitle` and `artist`. For example:
+- `/songs` posts one song. Returns object with `id`, `title` and `artist`. Expects json object in `req.body` with song `title`, `alternateTitle` and `artist`. For example:
 
 ```json
 {
@@ -21,7 +21,7 @@
 
 ### PATCH
 
-`/songs/:id` updates one song of given `id`. Returns object with `id`, `title` and `artist`. Expects `updatedSong` object in `req.body` to contain `title`, `alternateTitle` and `artist`. For example:
+- `/songs/:id` updates one song of given `id`. Returns object with `id`, `title` and `artist`. Expects `updatedSong` object in `req.body` to contain `title`, `alternateTitle` and `artist`. For example:
 
 ```json
 {
@@ -33,7 +33,7 @@
 
 ### DELETE
 
-`/songs/:id` deletes one song of given `id`. Returns object with deleted song's `title`.
+- `/songs/:id` deletes one song of given `id`. Returns object with deleted song's `title`.
 
 ## songsFilesRouter
 
