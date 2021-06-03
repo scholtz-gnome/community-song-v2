@@ -2,9 +2,27 @@
 
 ## songsRouter
 
-- GET /songs -> `getSongs` read ALL SONGS
-- GET /songs/:id -> `getSong` read ONE SONG
-- POST /songs -> `postSong` create ONE SONG
+### GET
+
+`/songs` retrieves all songs and returns array of objects
+`/songs/:id` retrieves song of given `id` and returns object with `id`, `title` and `artist`
+
+### POST
+
+`/songs` posts one song and returns object with `id`, title and artist. Expects json object in `req.body` with song `title`, `alternateTitle` and `artist`. For example:
+
+```json
+{
+  "title": "Nocturne in Eb Major",
+  "alternateTitle": "Op. 9, No. 2",
+  "artist": "Frédéric Chopin"
+}
+```
+
+### PATCH
+
+`/songs/:id` updates one song of given `id`
+
 - PATCH /songs/:id -> `patchSong` update ONE SONG
 - DELETE /songs/:id -> `deleteSong` delete ONE SONG
 
