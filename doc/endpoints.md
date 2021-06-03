@@ -37,8 +37,13 @@
 
 ## songsFilesRouter
 
-- GET /songs/:id/files -> `getSongsFiles` read ALL FILES of ONE SONG
-- POST /songs/:id/files -> `postSongsFiles` create ONE FILE of ONE SONG
+### GET
+
+- `/songs/:id/files` retrieves all files associated with song of given `id`. Returns array of base 64 encoded strings.
+
+### POST
+
+- `/songs/:id/files` creates one file associated with song of given `id`.
 
 ## songsFileCollectionsRouter
 
