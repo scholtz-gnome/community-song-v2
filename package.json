@@ -14,7 +14,6 @@
     "start": "concurrently 'cd backend/dist/src && npm start' 'cd frontend && npm start'",
     "postinstall": "concurrently 'cd backend && npm install' 'cd frontend && npm install'"
   },
-  "dependencies": {},
   "devDependencies": {
     "concurrently": "^6.2.0"
   },
