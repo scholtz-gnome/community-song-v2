@@ -9,7 +9,7 @@
 
 ### POST
 
-- `/songs` posts one song. Returns object with `id`, `title` and `artist`. Expects json object in `req.body` with song `title`, `alternateTitle` and `artist`. For example:
+- `/songs` posts one song. Returns object with `id`, `title` and `artist`. Expects `newSong` object, containing `title`, `alternateTitle` and `artist`. For example:
 
 ```json
 {
@@ -21,7 +21,7 @@
 
 ### PATCH
 
-- `/songs/:id` updates one song of given `id`. Returns object with `id`, `title` and `artist`. Expects `updatedSong` object in `req.body` to contain `title`, `alternateTitle` and `artist`. For example:
+- `/songs/:id` updates one song of given `id`. Returns object with `id`, `title` and `artist`. Expects `updatedSong` object, containing `title`, `alternateTitle` and `artist`. For example:
 
 ```json
 {
@@ -43,7 +43,15 @@
 
 ### POST
 
-- `/songs/:id/files` creates one file associated with song of given `id`.
+- `/songs/:id/files` creates one file associated with song of given `id`. Expects `file` Blob, `fileName` string and `type` string. For example:
+
+```json
+{
+  "file": {Blob},
+  "fileName": "Chopin Piece",
+  "type": "sheet music"
+}
+```
 
 ## songsFileCollectionsRouter
 
