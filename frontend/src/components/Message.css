@@ -1,0 +1,25 @@
+.message {
+  height: 59px;
+  width: 325px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(150, 150, 150, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  box-shadow: inset 0px 1px 7px rgba(100, 100, 100, 0.2);
+  border-radius: 6px;
+}
+
+.status {
+  color: black;
+  background: white;
+}
+
+.error {
+  color: white;
+  background: rgb(255, 0, 51);
+}
