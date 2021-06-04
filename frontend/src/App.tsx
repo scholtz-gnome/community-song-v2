@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
-import Create from "./components/Create";
+import Create from "./components/CreateSong/Create";
 import SongList from "./components/SongList";
 import SongDisplay from "./components/SongDisplay";
 import Signup from "./components/Signup";

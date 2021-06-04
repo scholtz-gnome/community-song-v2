@@ -1,9 +1,9 @@
 import File from "./File";
 
-interface FileProps {
+interface FileItemsProps {
   files: File[];
   changeFileType: Function;
   changeFileName: Function;
 }
 
-export default FileProps;
+export default FileItemsProps;

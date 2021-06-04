@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import FileItems from "../components/FileItems";
+import FileItems from "../components/CreateSong/FileItems";
 
 describe("FileItems Component", () => {
   it("renders the FileItems component without crashing", () => {

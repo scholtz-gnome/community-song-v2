@@ -41,7 +41,7 @@ context("Create", () => {
 
       cy.get("[cypress-test='create-song-submit']").click();
 
-      cy.get("[cypress-test='create-song-success-message']").contains(
+      cy.get("[cypress-test='create-song-status-message']").contains(
         "Nearly there..."
       );
 
@@ -49,7 +49,7 @@ context("Create", () => {
         assert.equal(interception.response.statusCode, 200);
       });
 
-      cy.get("[cypress-test='create-song-success-message']").contains(
+      cy.get("[cypress-test='create-song-status-message']").contains(
         "Octavarium created"
       );
     });
@@ -79,19 +79,20 @@ context("Create", () => {
         .attachFile("second.pdf")
         .trigger("input", { target: undefined, force: true });
 
-      cy.get(":nth-child(1) > :nth-child(2) > #file-type-select").select(
-        "bass tabs"
-      );
-      cy.get(":nth-child(2) > :nth-child(2) > #file-type-select").select(
-        "lyrics"
-      );
+      cy.get(
+        ":nth-child(1) > .file-item > :nth-child(2) > #file-type-select"
+      ).select("bass tabs");
+
+      cy.get(
+        ":nth-child(2) > .file-item > :nth-child(2) > #file-type-select"
+      ).select("lyrics");
 
       cy.intercept("POST", "http://localhost:4000/songs/*/file-collections").as(
         "postSongsFileCollections"
       );
       cy.get("[cypress-test='create-song-submit']").click();
 
-      cy.get("[cypress-test='create-song-success-message']").contains(
+      cy.get("[cypress-test='create-song-status-message']").contains(
         "Nearly there..."
       );
 
@@ -99,7 +100,7 @@ context("Create", () => {
         assert.equal(interception.response.statusCode, 200);
       });
 
-      cy.get("[cypress-test='create-song-success-message']").contains(
+      cy.get("[cypress-test='create-song-status-message']").contains(
         "The Dance of Eternity created"
       );
     });

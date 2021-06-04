@@ -1,65 +1,61 @@
-import "./form.css";
-import "./Create.css";
+import "./css/Create.css";
+import "../form.css";
+import "../Button.css";
+import SongInput from "./SongInput";
 import FileItems from "./FileItems";
-import "./Button.css";
+import AddFileButton from "./AddFileButton";
+import Message from "../Message";
+
 import { BaseSyntheticEvent, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
-import config from "../config";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-
-const plusIcon = <FontAwesomeIcon icon={faPlus} />;
+import config from "../../config";
 
 const splitType = (str: string) => str.split("/")[1];
+
 const csrfToken = document.cookie
   .split("; ")
   .find((row) => row.startsWith("CSRF-TOKEN"))
   ?.split("=")[1];
 
 const Create: React.FC = () => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState<string>("");
   const [alternateTitle, setAlternateTitle] = useState<string | null>(null);
-  const [artist, setArtist] = useState("unknown artist");
+  const [artist, setArtist] = useState<string>("unknown artist");
 
   const [files, setFiles] = useState<any[]>([]);
   const [fileNamesObject, setFileNamesObject] = useState<any>({});
   const [fileTypesObject, setFileTypesObject] = useState<any>({});
-  const [errorMessage, setErrorMessage] = useState("");
-  const [message, setMessage] = useState("");
 
-  const [isOpened, setIsOpened] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [message, setMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [isOpened, setIsOpened] = useState<boolean>(false);
+  const [uploadPercentage, setUploadPercentage] = useState<number>(0);
 
-  const onTitleChange = (e: BaseSyntheticEvent) => {
-    const trimmedTitle: string = e.target.value.trim();
-    setTitle(trimmedTitle);
+  const onSongTitleInput = (e: BaseSyntheticEvent) => {
+    const input: string = e.target.value.trim();
+    setTitle(input);
   };
 
-  const onAlternateTitleChange = (e: BaseSyntheticEvent) => {
-    const trimmedAlternateTitle: string = e.target.value.trim();
-    setAlternateTitle(trimmedAlternateTitle);
+  const onSongAlternateTitleInput = (e: BaseSyntheticEvent) => {
+    const input: string = e.target.value.trim();
+    setAlternateTitle(input);
   };
 
-  const onArtistChange = (e: BaseSyntheticEvent) => {
-    const trimmedArtist: string = e.target.value.trim();
-    if (!trimmedArtist) {
-      setArtist("unknown artist");
-    } else {
-      setArtist(trimmedArtist);
-    }
+  const onSongArtistInput = (e: BaseSyntheticEvent) => {
+    const input: string = e.target.value.trim();
+    setArtist(input);
   };
 
   const onFileNameChange = (e: BaseSyntheticEvent, oldFileName: string) => {
-    const trimmedFileName: string = e.target.value.trim();
-    fileNamesObject[oldFileName] = trimmedFileName;
+    const input: string = e.target.value.trim();
+    fileNamesObject[oldFileName] = input;
     setFileNamesObject(fileNamesObject);
     stateToggle();
   };
 
   const onFileTypeChange = (e: BaseSyntheticEvent, fileName: string) => {
-    const trimmedFileType: string = e.target.value.trim();
-    fileTypesObject[fileName] = trimmedFileType;
+    const input: string = e.target.value.trim();
+    fileTypesObject[fileName] = input;
     setFileTypesObject(fileTypesObject);
     stateToggle();
   };
@@ -109,13 +105,6 @@ const Create: React.FC = () => {
         "X-CSRF-TOKEN": csrfToken,
         "Content-Type": "application/json",
       },
-      onUploadProgress: (progressEvent: ProgressEvent) => {
-        setIsUploading(true);
-        setUploadPercentage(
-          Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        );
-        setMessage("Nearly there...");
-      },
     };
     try {
       const res = await axios.post(songsEndpoint, songData, axiosSongConfig);
@@ -130,7 +119,6 @@ const Create: React.FC = () => {
           "Content-Type": "multipart/form-data",
         },
         onUploadProgress: (progressEvent: ProgressEvent) => {
-          setIsUploading(true);
           setUploadPercentage(
             Math.round((progressEvent.loaded * 100) / progressEvent.total)
           );
@@ -144,7 +132,7 @@ const Create: React.FC = () => {
         formData.append("file", files[0]);
         formData.append("fileName", fileNamesObject[files[0].name]);
         formData.append("type", fileTypesObject[files[0].name]);
-        await axios.post(filesEndpoint || "", formData, axiosFileConfig);
+        await axios.post(filesEndpoint, formData, axiosFileConfig);
 
         setMessage(`${title} created`);
       } else if (files.length > 1) {
@@ -154,7 +142,7 @@ const Create: React.FC = () => {
           formData.append("fileNames", fileNamesObject[file.name]);
           formData.append("types", fileTypesObject[file.name]);
         });
-        await axios.post(filesEndpoint || "", formData, axiosFileConfig);
+        await axios.post(filesEndpoint, formData, axiosFileConfig);
         setMessage(`${title} created`);
       } else {
         setMessage(`${title} created`);
@@ -166,39 +154,11 @@ const Create: React.FC = () => {
 
   return (
     <form onSubmit={onSubmit} className="create" id="create-song-form">
-      <article className="songInfo">
-        <section>
-          <label className="labelName">Title</label>
-          <input
-            className="dark-input"
-            cypress-test="create-song-title-input"
-            type="text"
-            name="title"
-            required
-            onInput={onTitleChange}
-          />
-        </section>
-        <section>
-          <label className="labelName">Alternate Title</label>
-          <input
-            type="text"
-            cypress-test="create-song-alternate-title-input"
-            name="alternate_title"
-            onChange={onAlternateTitleChange}
-            className="dark-input"
-          />
-        </section>
-        <section>
-          <label className="labelName">Artist</label>
-          <input
-            className="dark-input"
-            cypress-test="create-song-artist-input"
-            type="text"
-            name="artist"
-            onChange={onArtistChange}
-          />
-        </section>
-      </article>
+      <SongInput
+        titleInput={onSongTitleInput}
+        alternateTitleInput={onSongAlternateTitleInput}
+        artistInput={onSongArtistInput}
+      />
       <article className="filesInfo">
         <FileItems
           files={files}
@@ -206,14 +166,10 @@ const Create: React.FC = () => {
           changeFileName={onFileNameChange}
         />
         {errorMessage && (
-          <section className="file-list">
-            <div className="error-item blank-item">{errorMessage}</div>
-          </section>
+          <Message message={errorMessage} messageType={"error"} />
         )}
         <section className="add-file">
-          <label htmlFor="file" cypress-test="create-song-add-file-label">
-            Add file <span>{plusIcon}</span>
-          </label>
+          <AddFileButton />
           <input
             cypress-test="create-song-add-file-input"
             id="file"
@@ -228,24 +184,16 @@ const Create: React.FC = () => {
             Create Song
           </button>
         </section>
-        {isUploading && (
-          <section
-            className="uploadPercentage"
-            style={{ width: `${uploadPercentage}%` }}
-          >
-            {uploadPercentage}%
-          </section>
-        )}
-        {message && (
-          <section className="file-list">
-            <div
-              className="blank-item"
-              cypress-test="create-song-success-message"
-            >
-              {message}
+
+        {uploadPercentage !== 0 && (
+          <section className="uploadPercentage">
+            <div style={{ width: `${uploadPercentage}%` }}>
+              {uploadPercentage}%
             </div>
           </section>
         )}
+
+        {message && <Message message={message} messageType={"status"} />}
       </article>
     </form>
   );

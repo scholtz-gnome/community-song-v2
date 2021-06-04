@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SkeletonDisplaySong from "../skeletons/SkeletonDisplaySong";
 import SkeletonTitle from "../skeletons/SkeletonTitle";
-import Create from "./Create";
+import Create from "./CreateSong/Create";
 import ProfilePic from "./ProfilePic";
 import FileDisplay from "./FileDisplay";
 
